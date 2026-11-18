@@ -1,6 +1,30 @@
 import React from 'react'
+import { useState } from 'react'
 import "./Verify.css"
+
+
 const Verify = ({condition}) => {
+
+const signupForm = (e)=>{
+    e.preventDefault();
+    console.log("okkk")
+   let userData = new FormData(e.target)
+   let userInfo = Object.fromEntries(userData)
+   console.log(userInfo)
+   e.target.reset()
+}
+const loginForm = (e)=>{
+    e.preventDefault();
+    console.log("okkk")
+   let userData = new FormData(e.target)
+   let userInfo = Object.fromEntries(userData)
+   console.log(userInfo)
+   e.target.reset()
+}
+
+
+
+
   return (
  (condition) ? <>  <div className="auth-container">
       <div className="auth-card">
@@ -12,15 +36,15 @@ const Verify = ({condition}) => {
           Start organizing your favorite links!
         </p>
 
-        <form>
+        <form onSubmit={signupForm}>
           <label>Full Name</label>
-          <input type="text" placeholder="Enter your name" />
+          <input type="text" placeholder="Enter your name"  name='yourname'/>
 
           <label>Email Address</label>
-          <input type="email" placeholder="Enter your email" />
+          <input type="email" placeholder="Enter your email" name='youremail' />
 
           <label>Password</label>
-          <input type="password" placeholder="Create password" />
+          <input type="password" placeholder="Create password"  name='password'/>
 
           <button type="submit" className="auth-submit">
             Create Account
@@ -43,12 +67,12 @@ const Verify = ({condition}) => {
           Login to access your saved bookmarks.
         </p>
 
-        <form>
+        <form onSubmit={loginForm}>
           <label>Email Address</label>
-          <input type="email" placeholder="Enter your email" />
+          <input type="email" placeholder="Enter your email"  name='youremail' />
 
           <label>Password</label>
-          <input type="password" placeholder="Enter your password" />
+          <input type="password" placeholder="Enter your password" name='password' />
 
           <button type="submit" className="auth-submit">
             Login
