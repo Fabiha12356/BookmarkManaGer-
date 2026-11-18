@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 
 import "./Hero.css"
 const Hero = () => {
@@ -23,13 +23,13 @@ const Hero = () => {
         </p>
 
         <div className="hero-buttons">
-          <button className="get-started">
+          <Link to={'/started'} className="get-started">
             Get Started →
-          </button>
+          </Link>
 
-          <button className="explore-btn">
+          <Link to='/explore' className="explore-btn">
             Explore Bookmarks
-          </button>
+          </Link>
         </div>
 
         <div className="hero-bottom">
