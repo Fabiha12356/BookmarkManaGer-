@@ -1,58 +1,47 @@
 import React from 'react'
-import "./Bookmark.css"
+
+
+import {  useNavigate } from 'react-router-dom'
+import { supabase } from '../SupabaseClient'
+import { useState,useEffect } from 'react'
+import UIbookmark from './UIbookmark'
+import Card from './Card'
+
+
 const Bookmarks = () => {
+  const navigate = useNavigate("")
+  let [show,showSet] = useState([])
+
+
+ useEffect(()=>{
+
+  const uiRender = async()=>{
+  const { data, error } = await supabase
+  .from('Receipe')
+  .select()
+  console.log(data)
+console.log(error);
+showSet(data);
+
+}
+uiRender()
+ },[])
+
+
+
+
   return (
-    <div className="bookmarks-page">
+     show && show.length > 0 ? <>
+          <div className="bookmark-grid">
 
-      <div className="bookmark-header">
-        <div>
-          <span className="bookmark-tag">✦ YOUR COLLECTION</span>
-          <h1>My Bookmarks</h1>
-          <p>All your favorite websites, saved in one place.</p>
-        </div>
-
-        <button className="add-bookmark-btn">
-          + Add Bookmark
-        </button>
-      </div>
-
-      <div className="bookmark-tools">
-
-        <input
-          type="text"
-          placeholder="🔍 Search your bookmarks..."
-          className="bookmark-search"
-        />
-
-        <select className="category-select">
-          <option>All Categories</option>
-          <option>Development</option>
-          <option>Education</option>
-          <option>Entertainment</option>
-          <option>Design</option>
-          <option>Other</option>
-        </select>
-
-      </div>
-
-      <div className="bookmark-empty">
-
-        <div className="empty-icon">🔖</div>
-
-        <h2>No Bookmarks Yet!</h2>
-
-        <p>
-          Start saving your favorite websites and
-          keep everything organized in one place.
-        </p>
-
-        <button className="empty-add-btn">
-          + Add Your First Bookmark
-        </button>
-
-      </div>
+      {show.map((item) => (
+        <Card key={item.id} item={item} />
+      ))}
 
     </div>
+     </> : <>
+     <UIbookmark/>
+     </>
   )
 }
 

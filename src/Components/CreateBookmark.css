@@ -1,0 +1,131 @@
+
+.add-bookmark-page {
+  min-height: 85vh;
+  padding: 55px 20px;
+  background: #faf8ff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.add-bookmark-card {
+  width: 100%;
+  max-width: 580px;
+  padding: 38px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px #7c5ab518;
+  box-sizing: border-box;
+}
+
+.add-bookmark-heading {
+  margin-bottom: 30px;
+}
+
+.add-bookmark-heading span {
+  color: #8b5cf6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.add-bookmark-heading h1 {
+  color: #25213b;
+  font-size: 29px;
+  margin: 12px 0;
+  font-weight: 800;
+}
+
+.add-bookmark-heading p {
+  color: #9993a8;
+  font-size: 14px;
+}
+
+.bookmark-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookmark-form label {
+  color: #39334e;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+.bookmark-form input,
+.bookmark-form select,
+.bookmark-form textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #e5def0;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 22px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  color: #39334e;
+  background: white;
+}
+
+.bookmark-form textarea {
+  resize: vertical;
+}
+
+.bookmark-form input:focus,
+.bookmark-form select:focus,
+.bookmark-form textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px #8b5cf615;
+}
+
+.bookmark-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.bookmark-form-buttons button {
+  padding: 13px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cancel-bookmark {
+  background: white;
+  border: 1px solid #ddd2f5;
+  color: #7651b8;
+}
+
+.save-bookmark {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+}
+
+.cancel-bookmark:hover {
+  background: #f3edff;
+}
+
+.save-bookmark:hover {
+  background: #7541df;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 500px) {
+  .add-bookmark-card {
+    padding: 25px 20px;
+  }
+
+  .bookmark-form-buttons {
+    flex-direction: column;
+  }
+
+  .bookmark-form-buttons button {
+    width: 100%;
+  }
+}

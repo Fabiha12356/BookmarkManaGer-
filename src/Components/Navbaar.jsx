@@ -6,6 +6,7 @@ import Bookmarks from './Bookmarks';
 import Favorite from './Favorite';
 import Hero from './Hero';
 import Verify from './Verify';
+import CreateBookmark from './CreateBookmark';
 
 
 const Navbaar = () => {
@@ -47,6 +48,7 @@ const Navbaar = () => {
     <Route path='/bookmarks' element={<Bookmarks/>} />
     <Route path='/favorites' element={<Favorite/>} />
     <Route path='/Verify' element={<Verify/>} />
+    <Route path='/createBookmark' element={<CreateBookmark/>} />
 
 
     {/* <Route path='/started' element={<Verify condition={true}/>} />

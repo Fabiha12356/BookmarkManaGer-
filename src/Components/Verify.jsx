@@ -51,6 +51,7 @@ if(data){
   icon: "success",
   draggable: true
 });
+console.log(data.user.id);
 navigate("/bookmarks");
 
 
@@ -61,6 +62,8 @@ navigate("/bookmarks");
   text: "Try Again",
          });
 }
+
+
 
 }
 

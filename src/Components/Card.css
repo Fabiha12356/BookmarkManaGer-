@@ -1,0 +1,128 @@
+
+.saved-bookmarks {
+  padding: 45px;
+  background: #faf8ff;
+  min-height: 80vh;
+}
+
+.saved-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.saved-heading h2 {
+  color: #29213d;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.saved-heading p {
+  color: #9990a9;
+  font-size: 14px;
+}
+
+.bookmark-count {
+  background: #eee6ff;
+  color: #8050df;
+  padding: 10px 17px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.bookmark-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.saved-card {
+  background: white;
+  border: 1px solid #eee8f8;
+  border-radius: 15px;
+  padding: 23px;
+  box-shadow: 0 5px 20px #6c42a10a;
+  transition: 0.3s;
+}
+
+.saved-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #6c42a11a;
+}
+
+.saved-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.category-tag {
+  background: #f1eaff;
+  color: #8855e9;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.bookmark-icon {
+  color: #8b5cf6;
+  font-size: 22px;
+}
+
+.saved-card h3 {
+  color: #29213d;
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.saved-description {
+  color: #8d879b;
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 48px;
+  margin-bottom: 22px;
+  overflow-wrap: anywhere;
+}
+
+.saved-card-bottom {
+  border-top: 1px solid #f0ebf7;
+  padding-top: 16px;
+}
+
+.saved-card-bottom a {
+  color: #8855e9;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.saved-card-bottom a:hover {
+  color: #6034b7;
+}
+
+@media (max-width: 900px) {
+  .bookmark-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .saved-bookmarks {
+    padding: 25px 16px;
+  }
+
+  .bookmark-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .saved-heading {
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
