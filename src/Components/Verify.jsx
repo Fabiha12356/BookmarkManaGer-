@@ -1,28 +1,103 @@
 import React from 'react'
 import { useState } from 'react'
 import "./Verify.css"
+import { supabase } from '../SupabaseClient'
+import { Link, useLocation,useNavigate } from 'react-router-dom'
 
 
-const Verify = ({condition}) => {
+const Verify = () => {
 
-const signupForm = (e)=>{
+  const navigate = useNavigate("")
+
+  const location = useLocation()
+const {condition} = location.state || {};
+
+
+const signupForm = async (e)=>{
     e.preventDefault();
     console.log("okkk")
    let userData = new FormData(e.target)
    let userInfo = Object.fromEntries(userData)
    console.log(userInfo)
    e.target.reset()
+
+// Empty Inputs :_
+    if (Object.values(userInfo).some(fields => !fields.trim())) {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    // Insert:-
+   const { error } = await supabase
+  .from('Users-data')
+  .insert(
+    {
+        "name" : userInfo.yourname,
+    }
+  )
+console.log(error);
+
+// Auth:-
+const { data, error:AuthError } = await supabase.auth.signUp({
+  "email": userInfo.youremail,
+  "password": userInfo.password,
+})
+console.log(data)
+console.log(AuthError)
+
+if(data){
+     Swal.fire({
+  title: "SignUp!",
+  icon: "success",
+  draggable: true
+});
+navigate("/bookmarks");
+
+
+}else{
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Try Again",
+         });
 }
-const loginForm = (e)=>{
+
+}
+
+const loginForm = async(e)=>{
     e.preventDefault();
     console.log("okkk")
    let userData = new FormData(e.target)
    let userInfo = Object.fromEntries(userData)
    console.log(userInfo)
    e.target.reset()
+
+  if (Object.values(userInfo).some(fields => !fields.trim())){
+    return;
+   }
+
+
+   const { data, error } = await supabase.auth.signInWithPassword({
+  "email": userInfo.email,
+  "password": userInfo.password,
+})
+
+
+if(data){
+     Swal.fire({
+  title: "SignUp!",
+  icon: "success",
+  draggable: true
+});
+}else{
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Try Again",
+         });
 }
 
-
+}
 
 
   return (

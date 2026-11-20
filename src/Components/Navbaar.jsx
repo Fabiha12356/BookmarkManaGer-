@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link,Route,Routes } from 'react-router-dom';
+import { Link,Route,Routes,useNavigate } from 'react-router-dom';
 import "./Navbaar.css"
 
 import Bookmarks from './Bookmarks';
@@ -7,7 +7,22 @@ import Favorite from './Favorite';
 import Hero from './Hero';
 import Verify from './Verify';
 
+
 const Navbaar = () => {
+  const navigate = useNavigate("")
+
+
+  const login = ()=>{
+    navigate("/verify", {
+      state : {condition : false}
+    })
+  }
+
+  const Signup = ()=>{
+    navigate("/verify", {
+      state : {condition : true}
+    })
+  }
     return (
    <>
     <nav className="navbar">
@@ -21,21 +36,23 @@ const Navbaar = () => {
         <li><Link to="/favorites">Favorites</Link></li>
       </ul>
 
-      <div className="auth-Link tos">
-        <Link to='/login' className="login-btn">Login</Link >
-        <Link to='/signup' className="signup-btn">Sign Up</Link >
+      <div className="auth-buttons ">
+        <button  onClick={login} className="login-btn">Login</button >
+        <button  onClick={Signup} className="signup-btn">Sign Up</button >
       </div>
     </nav>
 
 <Routes>
-    <Route path='/' element={<Hero/>} />
+    <Route path='/' element={<Hero  />} />
     <Route path='/bookmarks' element={<Bookmarks/>} />
     <Route path='/favorites' element={<Favorite/>} />
+    <Route path='/Verify' element={<Verify/>} />
 
-    <Route path='/started' element={<Verify condition={true}/>} />
+
+    {/* <Route path='/started' element={<Verify condition={true}/>} />
     <Route path='/login' element={<Verify condition={false}/>} />
     <Route path='/signup' element={<Verify condition={true}/>} />
-    <Route path='/explore' element={<Bookmarks/>} />
+    <Route path='/explore' element={<Bookmarks/>} /> */}
 </Routes>
    </>
 

@@ -56,15 +56,15 @@
 }
 
 .login-btn {
-  background: white;
-  border: 1px solid #8b5cf6;
-  color: #8b5cf6;
+  background: white !important;
+  border: 1px solid #8b5cf6 !important;
+  color: #8b5cf6 !important;
 }
 
 .signup-btn {
-  background: #8b5cf6;
-  border: 1px solid #8b5cf6;
-  color: white;
+  background: #8b5cf6 !important;
+  border: 1px solid #8b5cf6 !important;
+  color: white !important;
 }
 
 .login-btn:hover {

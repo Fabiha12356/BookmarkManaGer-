@@ -1,8 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link  } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import Verify from './Verify'
 
 import "./Hero.css"
 const Hero = () => {
+const navigate = useNavigate("")
+
+const move = ()=>{
+navigate("/Verify" ,{
+    state: {condition : true}
+})
+}
+
   return (
   <section className="hero">
 
@@ -23,13 +33,17 @@ const Hero = () => {
         </p>
 
         <div className="hero-buttons">
-          <Link to={'/started'} className="get-started">
+          {/* <Link to={'/started'} className="get-started">
             Get Started →
-          </Link>
+          </Link> */}
 
-          <Link to='/explore' className="explore-btn">
+          <button onClick={move} className='get-started'>  Get Started →</button>
+
+          {/* <Link to='/explore' className="explore-btn">
             Explore Bookmarks
-          </Link>
+          </Link> */}
+
+          <button className="explore-btn"> Explore Bookmarks</button>
         </div>
 
         <div className="hero-bottom">

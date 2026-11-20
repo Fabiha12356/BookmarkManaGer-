@@ -1,0 +1,147 @@
+
+.bookmarks-page {
+  min-height: 85vh;
+  padding: 55px 8%;
+  background: #faf8ff;
+}
+
+/* Header */
+
+.bookmark-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bookmark-tag {
+  color: #8b5cf6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.bookmark-header h1 {
+  color: #25213b;
+  font-size: 35px;
+  font-weight: 800;
+  margin: 12px 0;
+}
+
+.bookmark-header p {
+  color: #888296;
+  font-size: 15px;
+}
+
+.add-bookmark-btn,
+.empty-add-btn {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-bookmark-btn:hover,
+.empty-add-btn:hover {
+  background: #7541df;
+  transform: translateY(-3px);
+}
+
+/* Search and Filter */
+
+.bookmark-tools {
+  display: flex;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.bookmark-search {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid #e7e0f2;
+  border-radius: 9px;
+  outline: none;
+  font-size: 14px;
+  background: white;
+}
+
+.bookmark-search:focus {
+  border-color: #8b5cf6;
+}
+
+.category-select {
+  padding: 14px;
+  border: 1px solid #e7e0f2;
+  border-radius: 9px;
+  outline: none;
+  background: white;
+  color: #55516a;
+  cursor: pointer;
+}
+
+/* Empty State */
+
+.bookmark-empty {
+  margin-top: 65px;
+  padding: 65px 20px;
+  text-align: center;
+  background: white;
+  border: 1px dashed #d8c9f5;
+  border-radius: 18px;
+}
+
+.empty-icon {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  margin: auto;
+  border-radius: 20px;
+  background: #f1eaff;
+  font-size: 35px;
+}
+
+.bookmark-empty h2 {
+  color: #302a45;
+  font-size: 23px;
+  margin: 22px 0 10px;
+}
+
+.bookmark-empty p {
+  max-width: 400px;
+  margin: 0 auto 25px;
+  color: #9690a4;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .bookmarks-page {
+    padding: 35px 5%;
+  }
+
+  .bookmark-header h1 {
+    font-size: 28px;
+  }
+
+  .bookmark-tools {
+    flex-direction: column;
+  }
+
+  .bookmark-search,
+  .category-select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .add-bookmark-btn {
+    width: 100%;
+  }
+}
