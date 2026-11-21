@@ -72,6 +72,11 @@
 .bookmark-icon {
   color: #8b5cf6;
   font-size: 22px;
+   border: none;
+  border-radius: 50%;
+  border: 2px solid  #a855f7;
+  cursor: pointer;
+  padding: 5px 5px;
 }
 
 .saved-card h3 {
@@ -146,6 +151,14 @@
 .bookmark-actions button:hover {
   transform: translateY(-2px);
 }
+
+.dark{
+  color:  rgb(177, 151, 252);
+}
+.light{
+  color: white;
+}
+
 @media (max-width: 900px) {
   .bookmark-grid {
     grid-template-columns: repeat(2, 1fr);

@@ -90,6 +90,17 @@ try{
   
 }
 
+const favIcon = (e)=>{
+  console.log(e.target)
+  console.log("icon")
+  console.log(e.target.className)
+  if(e.target.className === "fa solid fa-heart"){
+    e.target.className = "fa solid fa-heart dark"
+  }else{
+    console.log("okk")
+  }
+}
+
   return (
      (condition === false) ? <>   
       
@@ -113,7 +124,12 @@ try{
             {item.category}
           </span>
 
-          <span className="bookmark-icon">✦</span>
+          {/* <span className="bookmark-icon light">
+
+          </span> */}
+          <button className='bookmark-icon light'>
+            <i onClick={favIcon} className="fa solid fa-heart "></i>
+          </button>
         </div>
 
         <h3>{item.recipename}</h3>
