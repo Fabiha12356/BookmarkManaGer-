@@ -1,12 +1,19 @@
 import React from 'react'
 
-
+import { useNavigate } from 'react-router-dom'
 
 import "./UIbookmark.css"
 const UIbookmark = () => {
-    const fromPage = ()=>{
+    
+    const navigate = useNavigate("")
+
+
+   const fromPage = ()=>{
+    console.log("okkkk")
     navigate("/createBookmark")
 }
+
+
   return (
     <div className="bookmarks-page">
 

@@ -7,7 +7,7 @@ import Favorite from './Favorite';
 import Hero from './Hero';
 import Verify from './Verify';
 import CreateBookmark from './CreateBookmark';
-
+import { supabase } from '../SupabaseClient';
 
 const Navbaar = () => {
   const navigate = useNavigate("")
@@ -24,6 +24,21 @@ const Navbaar = () => {
       state : {condition : true}
     })
   }
+
+const SignOut = async()=>{
+  console.log("okk!")
+  const { error } = await supabase.auth.signOut()
+  if(error){
+    console.log(error)
+  }else{
+      Swal.fire({
+  title: "SignOut!",
+  icon: "success",
+  draggable: true
+});
+  }
+}
+
     return (
    <>
     <nav className="navbar">
@@ -40,6 +55,7 @@ const Navbaar = () => {
       <div className="auth-buttons ">
         <button  onClick={login} className="login-btn">Login</button >
         <button  onClick={Signup} className="signup-btn">Sign Up</button >
+        <button  onClick={SignOut} className="login-btn">Sign Out</button >
       </div>
     </nav>
 
@@ -51,10 +67,7 @@ const Navbaar = () => {
     <Route path='/createBookmark' element={<CreateBookmark/>} />
 
 
-    {/* <Route path='/started' element={<Verify condition={true}/>} />
-    <Route path='/login' element={<Verify condition={false}/>} />
-    <Route path='/signup' element={<Verify condition={true}/>} />
-    <Route path='/explore' element={<Bookmarks/>} /> */}
+    
 </Routes>
    </>
 

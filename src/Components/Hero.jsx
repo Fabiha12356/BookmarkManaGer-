@@ -13,6 +13,10 @@ navigate("/Verify" ,{
 })
 }
 
+const nextMove = ()=>{
+  navigate("/bookmarks");
+}
+
   return (
   <section className="hero">
 
@@ -43,7 +47,7 @@ navigate("/Verify" ,{
             Explore Bookmarks
           </Link> */}
 
-          <button className="explore-btn"> Explore Bookmarks</button>
+          <button onClick={nextMove} className="explore-btn"> Explore Bookmarks</button>
         </div>
 
         <div className="hero-bottom">

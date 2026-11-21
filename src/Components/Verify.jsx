@@ -52,7 +52,11 @@ if(data){
   draggable: true
 });
 console.log(data.user.id);
-navigate("/bookmarks");
+navigate("/bookmarks",
+  {
+    state : {condition : true}
+  }
+);
 
 
 }else{

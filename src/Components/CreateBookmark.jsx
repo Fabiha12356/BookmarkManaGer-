@@ -18,6 +18,9 @@ console.log(userInfo)
 if(Object.values(userInfo).some(fields => !fields.trim())){
     return;
 }
+
+
+try{
 const { data: { user } } = await supabase.auth.getUser()
 
 const { error } = await supabase
@@ -29,12 +32,25 @@ const { error } = await supabase
 "recipename" : userInfo.title,
 "users-id" : user.id
    })
-   console.log(user);
+ console.log("no wayy")
    if(error){
-    console.log(error)
+ console.log(error)
    }else{
-     navigate("/bookmarks")
+     navigate("/bookmarks", 
+        {
+            state : {condition : false}
+        }
+
+     )
    }
+}catch(error){
+  Swal.fire({
+  title: "Are you sure?",
+  text: "Did you create your account ?",
+  icon: "warning", 
+})
+
+}
 
    e.target.reset()
 }
