@@ -36,6 +36,7 @@ const SignOut = async()=>{
   icon: "success",
   draggable: true
 });
+ navigate("/")
   }
 }
 

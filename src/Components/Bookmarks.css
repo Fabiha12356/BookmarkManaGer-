@@ -106,6 +106,46 @@
   color: #6034b7;
 }
 
+.bookmark-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.bookmark-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background: #f0eaff;
+  color: #8050df;
+  border: 1px solid #e3d7ff;
+}
+
+.edit-btn:hover {
+  background: #8050df;
+  color: white;
+}
+
+.delete-btn {
+  background: #fff0f0;
+  color: #e34c4c;
+  border: 1px solid #ffdada;
+}
+
+.delete-btn:hover {
+  background: #e34c4c;
+  color: white;
+}
+
+.bookmark-actions button:hover {
+  transform: translateY(-2px);
+}
 @media (max-width: 900px) {
   .bookmark-grid {
     grid-template-columns: repeat(2, 1fr);
