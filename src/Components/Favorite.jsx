@@ -1,9 +1,15 @@
 import React from 'react'
 
 
-const Favorite = () => {
+const Favorite = ({show,showset,favrt,setFavrt}) => {
   return (
-   <h1>fav</h1>
+   favrt.map((item)=>{
+    return(
+<h1>{item.title}</h1>
+    )
+   })
+ 
+   
   )
 }
 

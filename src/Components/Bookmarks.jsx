@@ -14,6 +14,7 @@ const Bookmarks = () => {
   const location = useLocation("")
   const {condition} = location.state || {}
   let [show,showSet] = useState([])
+  let [favrt,setFavrt] = useState([])
 
 
  useEffect(()=>{
@@ -90,15 +91,15 @@ try{
   
 }
 
-const favIcon = (e)=>{
-  console.log(e.target)
-  console.log("icon")
-  console.log(e.target.className)
-  if(e.target.className === "fa solid fa-heart"){
-    e.target.className = "fa solid fa-heart dark"
-  }else{
-    console.log("okk")
-  }
+const favIcon = (icon)=>{
+  console.log("clcik")
+ if(favrt.some((card)=> card.id === icon.id)){
+      setFavrt(
+          favrt.filter((card) => card.id !== icon.id)
+      )
+ }else{
+  setFavrt([...favrt,icon])
+ }
 }
 
   return (
@@ -124,11 +125,11 @@ const favIcon = (e)=>{
             {item.category}
           </span>
 
-          {/* <span className="bookmark-icon light">
-
-          </span> */}
-          <button className='bookmark-icon light'>
-            <i onClick={favIcon} className="fa solid fa-heart "></i>
+        
+          <button className='bookmark-icon light' onClick={()=> favIcon(item)}>
+            <i  className={  `fa solid fa-heart
+         ${favrt.some((card)=> card.id === item.id ) ? "dark" : "light"}`
+            }></i>
           </button>
         </div>
 

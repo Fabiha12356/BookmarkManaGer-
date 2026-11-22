@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link,Route,Routes,useNavigate } from 'react-router-dom';
 import "./Navbaar.css"
-
+import { useState } from 'react';
 import Bookmarks from './Bookmarks';
 import Favorite from './Favorite';
 import Hero from './Hero';
@@ -11,7 +11,8 @@ import { supabase } from '../SupabaseClient';
 
 const Navbaar = () => {
   const navigate = useNavigate("")
-
+  let [show,showSet] = useState([])
+   let [favrt,setFavrt] = useState([])
 
   const login = ()=>{
     navigate("/verify", {
@@ -63,7 +64,7 @@ const SignOut = async()=>{
 <Routes>
     <Route path='/' element={<Hero  />} />
     <Route path='/bookmarks' element={<Bookmarks/>} />
-    <Route path='/favorites' element={<Favorite/>} />
+    <Route path='/favorites' element={<Favorite show={show} showSet={showSet} favrt={favrt} setFavrt={setFavrt}/>} />
     <Route path='/Verify' element={<Verify/>} />
     <Route path='/createBookmark' element={<CreateBookmark/>} />
 
