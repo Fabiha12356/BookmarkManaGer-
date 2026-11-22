@@ -9,12 +9,11 @@ import { useLocation } from 'react-router-dom'
 
 
 import "./Bookmarks.css"
-const Bookmarks = () => {
+const Bookmarks = ({show,showSet,favrt,setFavrt}) => {
   const navigate = useNavigate("")
   const location = useLocation("")
   const {condition} = location.state || {}
-  let [show,showSet] = useState([])
-  let [favrt,setFavrt] = useState([])
+  
 
 
  useEffect(()=>{

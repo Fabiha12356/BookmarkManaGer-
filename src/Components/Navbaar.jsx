@@ -63,8 +63,10 @@ const SignOut = async()=>{
 
 <Routes>
     <Route path='/' element={<Hero  />} />
-    <Route path='/bookmarks' element={<Bookmarks/>} />
-    <Route path='/favorites' element={<Favorite show={show} showSet={showSet} favrt={favrt} setFavrt={setFavrt}/>} />
+    <Route path='/bookmarks' element={<Bookmarks  condition={false}
+    show={show} showSet={showSet} favrt={favrt} setFavrt={setFavrt} />} />
+    <Route path='/favorites' element={<Favorite 
+    show={show} showSet={showSet} favrt={favrt} setFavrt={setFavrt}/>} />
     <Route path='/Verify' element={<Verify/>} />
     <Route path='/createBookmark' element={<CreateBookmark/>} />
 
