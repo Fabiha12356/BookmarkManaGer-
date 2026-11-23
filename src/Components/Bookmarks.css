@@ -158,6 +158,20 @@
 .light{
   color: white;
 }
+.add-bookmark-btn{
+   background: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.add-bookmark-btn:hover{
+  background: #7541df;
+  transform: translateY(-3px);
+}
 
 @media (max-width: 900px) {
   .bookmark-grid {

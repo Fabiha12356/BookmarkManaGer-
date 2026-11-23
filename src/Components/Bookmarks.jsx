@@ -20,6 +20,10 @@ const Bookmarks = ({show,showSet,favrt,setFavrt}) => {
 
   const uiRender = async()=>{
     const{data : {user}} = await supabase.auth.getUser()
+  if (!user) {
+    showSet([]);
+    return;
+  }
   const { data, error } = await supabase
   .from('Receipe')
    .select("*")
@@ -28,9 +32,28 @@ const Bookmarks = ({show,showSet,favrt,setFavrt}) => {
 console.log(error);
 showSet(data);
 
+ if (!error) {
+    showSet(data || []);
+  }
 }
 uiRender()
+
+const {data: {subscription}}=
+supabase.auth.onAuthStateChange((e)=>{
+ if(e === "SIGNED_OUT"){
+  showSet([])
+ }if(e === "SIGNED_OUT"){
+  uiRender()
+ }
+
+ return()=>{
+  subscription.unsubscribe()
+ }
+
+})
+
  },[])
+
 
 const editBTn =async (card)=>{
 
@@ -100,16 +123,25 @@ const favIcon = (icon)=>{
   setFavrt([...favrt,icon])
  }
 }
+   const fromPage = ()=>{
+    console.log("okkkk")
+    navigate("/createBookmark")
+}
 
-  return (
-     (condition === false) ? <>   
-      
+
+ return(
+  show && show.length > 0 ? <>
 <div className="saved-bookmarks">
 
   <div className="saved-heading">
     <div>
       <h2>My Bookmarks</h2>
       <p>All your saved websites in one place.</p>
+    </div>
+    <div>
+        <button  onClick={fromPage} className="add-bookmark-btn">
+          + Add Bookmark
+        </button>
     </div>
   </div>
 
@@ -169,9 +201,10 @@ const favIcon = (icon)=>{
   </div>
 
 </div>
-</>:
-    <><UIbookmark/></>
-  )
+</> : (
+  <UIbookmark />
+)
+ )
 }
 
 export default Bookmarks
